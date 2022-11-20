@@ -20,8 +20,8 @@ namespace Computer_interlocking_system
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new CBI());
             CBI cc = new CBI();
-
         }
+        
     }
 
 }

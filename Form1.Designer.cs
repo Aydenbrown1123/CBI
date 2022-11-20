@@ -42,6 +42,10 @@ namespace Computer_interlocking_system
             this.djbtom = new System.Windows.Forms.Button();
             this.ZcName = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.XF_2DJ = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.XF_1DJ = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.X_2DJ = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.X_1DJ = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.rectangleShape4 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.lineShape19 = new Microsoft.VisualBasic.PowerPacks.LineShape();
@@ -83,6 +87,10 @@ namespace Computer_interlocking_system
             this.X_LA = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.X_D2 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.X_Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.设置故障ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.灯丝断丝ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.清除故障ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.X_D1 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.line_4G = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.Gd_Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -174,23 +182,15 @@ namespace Computer_interlocking_system
             this.label_1LQ = new System.Windows.Forms.Label();
             this.Dc_J_timer = new System.Windows.Forms.Timer(this.components);
             this.label_S4 = new System.Windows.Forms.Label();
-            this.X_Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.设置故障ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.清除故障ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.灯丝断丝ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.X_1DJ = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.X_2DJ = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.XF_1DJ = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.XF_2DJ = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.X_Menu.SuspendLayout();
             this.Gd_Menu.SuspendLayout();
             this.Dc_Menu.SuspendLayout();
-            this.X_Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // yzbto
@@ -480,6 +480,46 @@ namespace Computer_interlocking_system
             this.shapeContainer1.Size = new System.Drawing.Size(1262, 673);
             this.shapeContainer1.TabIndex = 11;
             this.shapeContainer1.TabStop = false;
+            // 
+            // XF_2DJ
+            // 
+            this.XF_2DJ.BackColor = System.Drawing.Color.Lime;
+            this.XF_2DJ.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.XF_2DJ.BorderColor = System.Drawing.Color.Silver;
+            this.XF_2DJ.BorderWidth = 3;
+            this.XF_2DJ.Location = new System.Drawing.Point(200, 150);
+            this.XF_2DJ.Name = "XF_2DJ";
+            this.XF_2DJ.Size = new System.Drawing.Size(20, 20);
+            // 
+            // XF_1DJ
+            // 
+            this.XF_1DJ.BackColor = System.Drawing.Color.Lime;
+            this.XF_1DJ.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.XF_1DJ.BorderColor = System.Drawing.Color.Silver;
+            this.XF_1DJ.BorderWidth = 3;
+            this.XF_1DJ.Location = new System.Drawing.Point(120, 150);
+            this.XF_1DJ.Name = "XF_1DJ";
+            this.XF_1DJ.Size = new System.Drawing.Size(20, 20);
+            // 
+            // X_2DJ
+            // 
+            this.X_2DJ.BackColor = System.Drawing.Color.Lime;
+            this.X_2DJ.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.X_2DJ.BorderColor = System.Drawing.Color.Silver;
+            this.X_2DJ.BorderWidth = 3;
+            this.X_2DJ.Location = new System.Drawing.Point(200, 75);
+            this.X_2DJ.Name = "X_2DJ";
+            this.X_2DJ.Size = new System.Drawing.Size(20, 20);
+            // 
+            // X_1DJ
+            // 
+            this.X_1DJ.BackColor = System.Drawing.Color.Lime;
+            this.X_1DJ.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.X_1DJ.BorderColor = System.Drawing.Color.Silver;
+            this.X_1DJ.BorderWidth = 3;
+            this.X_1DJ.Location = new System.Drawing.Point(120, 75);
+            this.X_1DJ.Name = "X_1DJ";
+            this.X_1DJ.Size = new System.Drawing.Size(20, 20);
             // 
             // rectangleShape4
             // 
@@ -845,6 +885,37 @@ namespace Computer_interlocking_system
             this.X_D2.Location = new System.Drawing.Point(170, 274);
             this.X_D2.Name = "X_D2";
             this.X_D2.Size = new System.Drawing.Size(14, 14);
+            // 
+            // X_Menu
+            // 
+            this.X_Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.X_Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.设置故障ToolStripMenuItem1,
+            this.清除故障ToolStripMenuItem1});
+            this.X_Menu.Name = "X_Menu";
+            this.X_Menu.Size = new System.Drawing.Size(139, 52);
+            // 
+            // 设置故障ToolStripMenuItem1
+            // 
+            this.设置故障ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.灯丝断丝ToolStripMenuItem});
+            this.设置故障ToolStripMenuItem1.Name = "设置故障ToolStripMenuItem1";
+            this.设置故障ToolStripMenuItem1.Size = new System.Drawing.Size(138, 24);
+            this.设置故障ToolStripMenuItem1.Text = "设置故障";
+            // 
+            // 灯丝断丝ToolStripMenuItem
+            // 
+            this.灯丝断丝ToolStripMenuItem.Name = "灯丝断丝ToolStripMenuItem";
+            this.灯丝断丝ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.灯丝断丝ToolStripMenuItem.Text = "灯丝断丝";
+            this.灯丝断丝ToolStripMenuItem.Click += new System.EventHandler(this.X_Functions_D);
+            // 
+            // 清除故障ToolStripMenuItem1
+            // 
+            this.清除故障ToolStripMenuItem1.Name = "清除故障ToolStripMenuItem1";
+            this.清除故障ToolStripMenuItem1.Size = new System.Drawing.Size(138, 24);
+            this.清除故障ToolStripMenuItem1.Text = "清除故障";
+            this.清除故障ToolStripMenuItem1.Click += new System.EventHandler(this.X_Functions_Q);
             // 
             // X_D1
             // 
@@ -1834,57 +1905,6 @@ namespace Computer_interlocking_system
             this.label_S4.TabIndex = 44;
             this.label_S4.Text = "S4";
             // 
-            // X_Menu
-            // 
-            this.X_Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.X_Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.设置故障ToolStripMenuItem1,
-            this.清除故障ToolStripMenuItem1});
-            this.X_Menu.Name = "X_Menu";
-            this.X_Menu.Size = new System.Drawing.Size(139, 52);
-            // 
-            // 设置故障ToolStripMenuItem1
-            // 
-            this.设置故障ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.灯丝断丝ToolStripMenuItem});
-            this.设置故障ToolStripMenuItem1.Name = "设置故障ToolStripMenuItem1";
-            this.设置故障ToolStripMenuItem1.Size = new System.Drawing.Size(138, 24);
-            this.设置故障ToolStripMenuItem1.Text = "设置故障";
-            // 
-            // 清除故障ToolStripMenuItem1
-            // 
-            this.清除故障ToolStripMenuItem1.Name = "清除故障ToolStripMenuItem1";
-            this.清除故障ToolStripMenuItem1.Size = new System.Drawing.Size(138, 24);
-            this.清除故障ToolStripMenuItem1.Text = "清除故障";
-            this.清除故障ToolStripMenuItem1.Click += new System.EventHandler(this.X_Functions_Q);
-            // 
-            // 灯丝断丝ToolStripMenuItem
-            // 
-            this.灯丝断丝ToolStripMenuItem.Name = "灯丝断丝ToolStripMenuItem";
-            this.灯丝断丝ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.灯丝断丝ToolStripMenuItem.Text = "灯丝断丝";
-            this.灯丝断丝ToolStripMenuItem.Click += new System.EventHandler(this.X_Functions_D);
-            // 
-            // X_1DJ
-            // 
-            this.X_1DJ.BackColor = System.Drawing.Color.Lime;
-            this.X_1DJ.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
-            this.X_1DJ.BorderColor = System.Drawing.Color.Silver;
-            this.X_1DJ.BorderWidth = 3;
-            this.X_1DJ.Location = new System.Drawing.Point(120, 75);
-            this.X_1DJ.Name = "X_1DJ";
-            this.X_1DJ.Size = new System.Drawing.Size(20, 20);
-            // 
-            // X_2DJ
-            // 
-            this.X_2DJ.BackColor = System.Drawing.Color.Lime;
-            this.X_2DJ.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
-            this.X_2DJ.BorderColor = System.Drawing.Color.Silver;
-            this.X_2DJ.BorderWidth = 3;
-            this.X_2DJ.Location = new System.Drawing.Point(200, 75);
-            this.X_2DJ.Name = "X_2DJ";
-            this.X_2DJ.Size = new System.Drawing.Size(20, 20);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -1924,26 +1944,6 @@ namespace Computer_interlocking_system
             this.label4.Size = new System.Drawing.Size(25, 15);
             this.label4.TabIndex = 49;
             this.label4.Text = "XF";
-            // 
-            // XF_1DJ
-            // 
-            this.XF_1DJ.BackColor = System.Drawing.Color.Lime;
-            this.XF_1DJ.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
-            this.XF_1DJ.BorderColor = System.Drawing.Color.Silver;
-            this.XF_1DJ.BorderWidth = 3;
-            this.XF_1DJ.Location = new System.Drawing.Point(120, 150);
-            this.XF_1DJ.Name = "XF_1DJ";
-            this.XF_1DJ.Size = new System.Drawing.Size(20, 20);
-            // 
-            // XF_2DJ
-            // 
-            this.XF_2DJ.BackColor = System.Drawing.Color.Lime;
-            this.XF_2DJ.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
-            this.XF_2DJ.BorderColor = System.Drawing.Color.Silver;
-            this.XF_2DJ.BorderWidth = 3;
-            this.XF_2DJ.Location = new System.Drawing.Point(200, 150);
-            this.XF_2DJ.Name = "XF_2DJ";
-            this.XF_2DJ.Size = new System.Drawing.Size(20, 20);
             // 
             // label5
             // 
@@ -2028,9 +2028,9 @@ namespace Computer_interlocking_system
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "CBI";
+            this.X_Menu.ResumeLayout(false);
             this.Gd_Menu.ResumeLayout(false);
             this.Dc_Menu.ResumeLayout(false);
-            this.X_Menu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

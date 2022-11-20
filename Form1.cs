@@ -12,19 +12,12 @@ using System.Windows.Forms;
 
 namespace Computer_interlocking_system
 {
-    public partial class CBI : Form
+public partial class CBI : Form
     {
         public bool flag = false;//标签显示的标志位
         public CBI()
         {
             InitializeComponent();
-            Control.CheckForIllegalCrossThreadCalls = false;
-        }
-        public static CBI form1;
-        public void BCI()
-        {
-            InitializeComponent();
-            form1 = this;
         }
         /// <summary>
         /// X引导总锁闭按钮-悬停提示信息
@@ -260,7 +253,7 @@ namespace Computer_interlocking_system
         //道岔的操作在此处包装为函数，使用时结合条件判定，直接调用实现进行图形的变换
         //道岔的定位
         //道岔1定位操作
-        public  void C1_D()
+        public void C1_D()
         {
             line_C1_D.BorderColor = Color.Lime;
             line_C1_D.BorderStyle = System.Drawing.Drawing2D.DashStyle.Solid;
@@ -648,32 +641,12 @@ namespace Computer_interlocking_system
                 C11_J();
             }
         }
+
+
         //信号机灯光显示
 
         //X信号机灯光显示
-        public void Xshow()
-        {
-            //信号机X亮灯条件判断
-            while(true)
-            {
-                if (X.DJ1 == true && X.DJ2 == true)
-                {
-                    if (X.LXJ == false && X.YXJ == false && X.ZXJ == false && X.LUXJ == false && X.TXJ == false)
-                    {
-                        X_H();
-                    }
-                    if (X.LXJ == true && X.YXJ == false && X.ZXJ == false && X.LUXJ == false && X.TXJ == false)
-                    {
-                        X_L();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("灯丝断丝");
-                }
-            }
-
-        }
+       
         //正线通过——绿灯
         public void X_L()
         {
@@ -1283,6 +1256,6 @@ namespace Computer_interlocking_system
             X_D1.BackStyle =Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             X_D2.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             X_1DJ.BackColor = Color.Lime;
-        }  
+        }
     }
 }

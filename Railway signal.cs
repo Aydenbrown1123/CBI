@@ -6,67 +6,57 @@ using System.Threading.Tasks;
 
 namespace Computer_interlocking_system.Properties
 {
-    class Railway_signal
+    class Signal
     {
-        /// <summary>
-        /// 信号机名称
-        /// </summary>
+        // 信号机名称
         private string _name;
         public string Name
         {
             get { return _name; }
             set { _name = value; }
         }
-        /// <summary>
-        /// 信号机左边关联设备名称
-        /// </summary>
+        //信号机左边区段名称
         private string _l_name;
-        public string l_name
+        public string L_name
         {
             get { return _l_name; }
             set { _l_name = value; }
         }
-        /// <summary>
-        /// 信号机右边关联设备名称
-        /// </summary>
+        //信号机右边区段名称
         private string _r_name;
-        public string r_name
+        public string R_name
         {
             get { return _r_name; }
             set { _r_name = value; }
         }
-        /// <summary>
-        /// 接近区段名称
-        /// </summary>
-        private string _J_name;
-        public string J_name
+        //1灯丝继电器
+        private bool _DJ1;
+        public bool DJ1
         {
-            get { return _J_name; }
-            set { _J_name = value; }
+            get { return _DJ1; }
+            set { _DJ1 = value; }
         }
-        /// <summary>
-        /// 防护内方第一个道岔名称
-        /// </summary>
-        private string _D_name;
-        public string D_name
+        //构造函数，信号机和两边的区段名称手动输入，其他自动给初始化
+        public Signal(string name,string lname,string rname)
         {
-            get { return _D_name; }
-            set { _D_name = value; }
+            Name = name;
+            L_name = lname;
+            R_name = rname;
+            DJ1 = true;
         }
-        /// <summary>
-        /// 防护内方第一个区段名称
-        /// </summary>
-        private string _Q_name;
-        public string q_name
+    }
+    class InboundSignal:Signal
+    {
+        //2灯丝继电器
+        private bool _DJ2;
+        public bool DJ2
         {
-            get { return _Q_name; }
-            set { _Q_name = value; }
+            get { return _DJ2; }
+            set { _DJ2 = value; }
         }
-        /// <summary>
-        /// 在信号机类当中定义布尔类型的LXJ变量
-        /// </summary>
-        private bool _LXJ;//字段
-        public bool LXJ//属性
+        // 列车信号继电器
+        private bool _LXJ;
+        public bool LXJ
         {
             get { return _LXJ; }
             set { _LXJ = value; }
@@ -95,21 +85,60 @@ namespace Computer_interlocking_system.Properties
             get { return _LUXJ; }
             set { _LUXJ = value; }
         }
-        private bool _1DJ;
-        public bool DJ1
+        public InboundSignal(string name, string lname, string rname) : base(name,lname,rname)
         {
-            get { return _1DJ; }
-            set { _1DJ = value; }
+            DJ2 = true;
+            LXJ = false;
+            YXJ = false;
+            ZXJ = false;
+            TXJ = false;
+            LUXJ = false;
         }
-        private bool _2DJ;
-        public bool DJ2
+    }
+    //调车信号机
+    class ShuntingSignal:Signal
+    {
+        //调车信号继电器
+        private bool _DXJ;
+        public bool DXJ
         {
-            get { return _2DJ; }
-            set { _2DJ = value; }
+            get { return _DXJ; }
+            set { _DXJ = value; }
         }
-        public void Railway_signal_F()
+        public ShuntingSignal(string name, string lname, string rname) :base(name,lname,rname)
         {
-
+            DXJ = false;
+        }
+    }
+    //接车兼调车信号机
+    class ReceivingShuntingSignal:Signal
+    {
+        //列车信号继电器
+        private bool _LXJ;
+        public bool LXJ
+        {
+            get { return _LXJ; }
+            set { _LXJ = value; }
+        }
+        //正线信号继电器
+        private bool _ZXJ;
+        public bool ZXJ
+        {
+            get { return _ZXJ; }
+            set { _ZXJ = value; }
+        }
+        //调车信号继电器
+        private bool _DXJ;
+        public bool DXJ
+        {
+            get { return _DXJ; }
+            set { _DXJ = value; }
+        }
+        public ReceivingShuntingSignal(string name, string lname, string rname) :base(name,lname,rname)
+        {
+            LXJ = false;
+            ZXJ = false;
+            DXJ = false;
         }
     }
 }
