@@ -7,39 +7,31 @@ using System.Windows.Forms;
 
 namespace Computer_interlocking_system
 {
-    //轨道区段类
-    class Track
+    //轨道区段（不区分有岔无岔，主要/次要方向的选择由道岔来完成）
+    public class Track
     {
-        /// <summary>
-        /// 轨道区段名称，需要初始化的时候写入
-        /// </summary>
+        // 轨道区段名称，需要初始化的时候写入
         private string _name;
         public string Name
         {
             get { return _name; }
             set { _name = value; }
         }
-        /// <summary>
-        /// 本区段左边区段名称
-        /// </summary>
-        private string  _l_track;
+        // 本区段左边设备名称(轨道两边可能是道岔/信号机)
+        private string _l_name;
         public string L_name
         {
-            get { return _l_track; }
-            set { _l_track = value; }
+            get { return _l_name; }
+            set { _l_name = value; }
         }
-        /// <summary>
-        /// 本区段右边区段名称
-        /// </summary>
-        private string _r_track;
+        // 本区段右边设备名称
+        private string _r_name;
         public string R_name
         {
-            get { return _r_track; }
-            set { _r_track = value; }
+            get { return _r_name; }
+            set { _r_name = value; }
         }
-        /// <summary>
-        /// 轨道区段继电器，TRUE代表正常，FALSE代表故障
-        /// </summary>
+        // 轨道区段继电器，TRUE代表占用，FALSE代表空闲
         private bool _DGJ;
         public bool DGJ
         {
@@ -47,35 +39,21 @@ namespace Computer_interlocking_system
             set { _DGJ = value; }
         }
         private bool _locking;
-        /// <summary>
-        /// 进路锁闭状态指示，TRUE代表进路锁闭，FALSE代表进路空闲
-        /// </summary>
+        // 进路锁闭状态指示，TRUE代表进路锁闭
         public bool Locking
         {
             get { return _locking; }
             set { _locking = value; }
         }
-        /// <summary>
-        /// 引导锁闭状态指示，TRUE代表引导锁闭，FALSE代表没有引导锁闭
-        /// </summary>
+        // 引导锁闭状态指示，TRUE代表引导锁闭
         private bool _guiding;
         public bool Guiding
         {
             get { return _guiding; }
             set { _guiding = value; }
         }
-        /// <summary>
-        /// 进路类型指示，0代表接车进路，1代表发车进路，2代表调车进路
-        /// </summary>
-        private int _direction;
-        public int Direction
-        {
-            get { return _direction; }
-            set { _direction = value; }
-        }
-        /// <summary>
-        /// 构造函数,自动初始化DGJ Locking Guiding字段，手动初始化区段名称，左边/右边区段名称
-        /// </summary>
+
+        // 构造函数,自动初始化DGJ Locking Guiding字段，手动初始化区段名称，左边/右边区段名称
         public Track(string name,string lname,string rname)
         {
             Name = name;
@@ -85,39 +63,83 @@ namespace Computer_interlocking_system
             this._locking = false;
             this._guiding = false;
         }
-        /// <summary>
-        /// 轨道区段在进路当中的处理
-        /// </summary>
-        public void TrackOperation()
+        // 检查轨道区段是否空闲
+        public bool IsTrackFree()
         {
-            //正常进路处理过程
-            //第一步检查进路状态
-            if(DGJ==false)
+            if(DGJ==false&&Locking==false&&Guiding==false)
             {
-                MessageBox.Show("轨道区段" + this.Name + "存在故障，无法排列进路");
+                return true;
             }
             else
             {
-                //第二步，选路设置，主要工作集中在道岔定反位操作，轨道区段不理睬
-                //第三步，锁闭条件检查，同上
-                //第四步,锁闭设置，根据进路类型对Locking Guiding字段操作（正常进路）
-                Locking = true;
+                MessageBox.Show("轨道区段" + this.Name + "存在故障或已经锁闭");
+                return false;
+            }
+        }
+        //将该轨道区段锁闭（正常进路）
+        public bool LockNormalRoute()
+        {
+            this.Locking = true;
+            this.Guiding = false;
+            
+            return true;
+        }
+        //将该轨道区段锁闭（引导进路）
+        public bool LockGuideRoute()
+        {
+            Locking = true;
+            Guiding = false;
+
+            return true;
+        }
+        //将该区段从正常进路解锁
+        public bool UnlockNormalrelease()
+        {
+            if(DGJ==true)
+            {
+                Locking = false;
                 Guiding = false;
-                //第五步，开放信号检查，再次检查有无故障，有故障则转为引导进路(注意信号机灯光变换)
-                if(true)//此处为指示进路当中是否有故障的全局变量
-                {
-                    //以下是正常建立进路
-
-                }
-                else
-                {
-                    Guiding = true;
-                    //以下是建立引导进路
-
-                }
-                //第六步，手动模拟行车，注意信号机灯光变换
-                //正常进路锁闭，区段被占用，出清，直接进入空闲状态，结束
-                //引导进路锁闭，区段被占用，出清，进路处于仍然处于锁闭状态，需要总人解或区故解
+                DGJ = false;
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("轨道区段" + this.Name + "存在故障或已建立引导进路，无法解锁");
+                return false;
+            }
+        }
+        //将该区段从引导进路解锁
+        public bool UnlockGuideRelease()
+        {
+            if(DGJ==true)
+            {
+                this.Locking = false;
+                this.Guiding = false;
+                DGJ = false;
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("轨道区段"+this.Name+"存在故障或无需引导解锁");
+                return false;
+            }  
+        }
+        //故障/列车占用设置
+        public void SetFaultOrOccupy()
+        {
+            DGJ = false;
+        }
+        //自动返回列车进路下一个轨道区段名称
+        //RouteDirection:进路方向，0代表接车进路，1代表发车进路，2代表向右调车，3代表向左调车
+        public string GetNextTrack(int RouteDirection)
+        {
+            if(RouteDirection == 0||RouteDirection==2)
+            {
+                return this.R_name;
+            }
+            else
+            {
+                return this.L_name;
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using Computer_interlocking_system.Properties;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Computer_interlocking_system
 {
-public partial class CBI : Form
+    public partial class CBI : Form
     {
         public bool flag = false;//标签显示的标志位
         public CBI()
@@ -20,10 +21,505 @@ public partial class CBI : Form
             InitializeComponent();
         }
         /// <summary>
-        /// X引导总锁闭按钮-悬停提示信息
+        /// 联锁程序主体
         /// </summary>
-        /// <param name="sender"><n/paorC
-        /// <param name="e"></param>
+        public void Shilihua()
+        {
+            //实例化信号设备
+
+            //轨道区段
+            Track T_3JG = new Track("3JG", "NULL", "X");
+            Track T_3DG_1 = new Track("3DG_1", "X", "C3");
+            Track T_3DG_2 = new Track("3DG_2", "C3", "D5");
+            Track T_5DG_1 = new Track("5DG_1", "D5", "C5");
+            Track T_5DG_2 = new Track("5DG_2", "C5", "D7");
+            Track T_9DG_1 = new Track("9DG_1", "D7", "C9");
+            Track T_9DG_2 = new Track("9DG_2", "C9", "SI");
+            Track T_9DG_3 = new Track("9DG_3", "C9", "S3");
+            Track T_IG = new Track("IG", "SI", "NULL");
+            Track T_3G = new Track("3G", "S3", "NULL");
+            Track T_1LQ = new Track("1LQ", "NULL", "XF");
+            Track T_IIAG = new Track("IIAG", "XF", "D_1");
+            Track T_1DG_1 = new Track("1DG_1", "D1", "C1");
+            Track T_1DG_2 = new Track("1DG_2", "C1", "D3");
+            Track T_7DG_1 = new Track("7DG_1", "D3", "C7");
+            Track T_7DG_2 = new Track("7DG_2", "C7", "D9");
+            Track T_11DG_1 = new Track("11DG_1", "D9", "C11");
+            Track T_11DG_2 = new Track("11DG_2", "C11", "SII");
+            Track T_11DG_3 = new Track("11_DG_3", "C_11", "S4");
+            Track T_IIG = new Track("IIG", "SII", "NULL");
+            Track T_4G = new Track("4G", "S4", "NULL");
+            Track T_1_3DG = new Track("1-3DG", "C1", "C3");
+            Track T_5_7DG = new Track("5-7DG", "C5", "C7");
+            ArrayList TrackList = new ArrayList
+            {
+                T_3JG,
+                T_3DG_1,
+                T_3DG_2,
+                T_5DG_1,
+                T_5DG_2,
+                T_9DG_1,
+                T_9DG_2,
+                T_9DG_3,
+                T_IG,
+                T_3G,
+                T_1LQ,
+                T_IIAG,
+                T_1DG_1,
+                T_1DG_2,
+                T_7DG_1,
+                T_7DG_2,
+                T_11DG_1,
+                T_11DG_2,
+                T_11DG_3,
+                T_IIG,
+                T_4G,
+                T_1_3DG,
+                T_5_7DG
+            };
+
+
+
+            //信号机
+            InboundSignal X = new InboundSignal("X", T_3JG, T_3DG_1);
+            InboundSignal XF = new InboundSignal("XF", T_1LQ, T_IIAG);
+            ReceivingShuntingSignal SI = new ReceivingShuntingSignal("SI", T_9DG_2, T_IG);
+            ReceivingShuntingSignal SII = new ReceivingShuntingSignal("SII", T_11DG_2, T_IIG);
+            ReceivingShuntingSignal S3 = new ReceivingShuntingSignal("S3", T_9DG_3, T_3G);
+            ReceivingShuntingSignal S4 = new ReceivingShuntingSignal("S4", T_11DG_3, T_4G);
+            ShuntingSignal D1 = new ShuntingSignal("D1", T_IIAG, T_1DG_1);
+            ShuntingSignal D3 = new ShuntingSignal("D3", T_1DG_2, T_7DG_1);
+            ShuntingSignal D5 = new ShuntingSignal("D5", T_3DG_2, T_5DG_1);
+            ShuntingSignal D7 = new ShuntingSignal("D7", T_5DG_2, T_9DG_1);
+            ShuntingSignal D9 = new ShuntingSignal("D9", T_7DG_2, T_11DG_1);
+            ArrayList SignalList = new ArrayList
+            {
+                X,
+                XF,
+                SI,
+                SII,
+                S3,
+                S4,
+                D1,
+                D3,
+                D5,
+                D7,
+                D9
+            };
+
+
+            //道岔
+            Switch C1 = new Switch("C1", 1, T_1DG_1, T_1DG_2, T_1_3DG);
+            //{ "XF" },{"SII","S4"},{ "XF"},{ "SI","SII","S3","S4"}
+            C1.D_LSignal.Add(XF);
+            C1.D_RSignal.Add(SII);
+            C1.D_RSignal.Add(S4);
+            C1.F_LSignal.Add(XF);
+            C1.F_RSignal.Add(SI);
+            C1.F_RSignal.Add(SII);
+            C1.F_RSignal.Add(S3);
+            C1.F_RSignal.Add(S4);
+            Switch C3 = new Switch("C3", 0, T_3DG_1, T_3DG_2, T_1_3DG);
+            C3.D_LSignal.Add(X);
+            C3.D_RSignal.Add(SI);
+            C3.D_RSignal.Add(SII);
+            C3.D_RSignal.Add(S3);
+            C3.D_RSignal.Add(S4);
+            C3.F_LSignal.Add(XF);
+            C3.F_RSignal.Add(SI);
+            C3.F_RSignal.Add(SII);
+            C3.F_RSignal.Add(S3);
+            C3.F_RSignal.Add(S4);
+            Switch C5 = new Switch("C5", 1, T_5DG_1, T_5DG_2, T_5_7DG);
+            C5.D_LSignal.Add(X);
+            C5.D_LSignal.Add(XF);
+            C5.D_RSignal.Add(SI);
+            C5.D_RSignal.Add(S3);
+            C5.F_LSignal.Add(X);
+            C5.F_LSignal.Add(XF);
+            C5.F_RSignal.Add(SII);
+            C5.F_RSignal.Add(S4);
+            Switch C7 = new Switch("C7", 0, T_7DG_1, T_7DG_2, T_5_7DG);
+            C7.D_LSignal.Add(X);
+            C7.D_LSignal.Add(XF);
+            C7.D_RSignal.Add(SII);
+            C7.D_RSignal.Add(S4);
+            C7.F_LSignal.Add(X);
+            C7.F_LSignal.Add(XF);
+            C7.F_RSignal.Add(SII);
+            C7.F_RSignal.Add(S4);
+            Switch C9 = new Switch("C9", 1, T_9DG_1, T_9DG_2, T_9DG_3);
+            C9.D_LSignal.Add(X);
+            C9.D_LSignal.Add(XF);
+            C9.D_RSignal.Add(SI);
+            C9.F_LSignal.Add(X);
+            C9.F_LSignal.Add(XF);
+            C9.F_RSignal.Add(S3);
+            Switch C11 = new Switch("C11", 1, T_11DG_1, T_11DG_2, T_11DG_3);
+            C11.D_LSignal.Add(X);
+            C11.D_LSignal.Add(XF);
+            C11.D_RSignal.Add(S3);
+            C11.F_LSignal.Add(X);
+            C11.F_LSignal.Add(XF);
+            C11.F_RSignal.Add(S4);
+            ArrayList SwitchList = new ArrayList
+            {
+                C1,
+                C3,
+                C5,
+                C7,
+                C9,
+                C11
+            };
+
+
+
+
+            //联锁表
+            //接车
+            //X至IG
+            ArrayList J_X_SI = new ArrayList
+            {
+                X,
+                T_3DG_1,
+                C3,
+                T_3DG_2,
+                D5,
+                T_5DG_1,
+                C5,
+                T_5DG_2,
+                D7,
+                T_9DG_1,
+                C9,
+                T_9DG_2,
+                SI,
+                T_IG
+            };
+            //X至3G
+            ArrayList J_X_S3 = new ArrayList
+            {
+                X,
+                T_3DG_1,
+                C3,
+                T_3DG_2,
+                D5,
+                T_5DG_1,
+                C5,
+                T_5DG_2,
+                D7,
+                T_9DG_1,
+                C9,
+                T_9DG_3,
+                SI,
+                T_3G
+            };
+            //X至IIG
+            ArrayList J_X_SII = new ArrayList
+            {
+                X,
+                T_3DG_1,
+                C3,
+                T_3DG_2,
+                D5,
+                T_5DG_1,
+                C5,
+                T_5_7DG,
+                C7,
+                T_7DG_2,
+                D9,
+                T_11DG_1,
+                C11,
+                T_11DG_2,
+                SII,
+                T_IIG
+            };
+            //X至4G
+            ArrayList J_X_S4 = new ArrayList
+            {
+                X,
+                T_3DG_1,
+                C3,
+                T_3DG_2,
+                D5,
+                T_5DG_1,
+                C5,
+                T_5_7DG,
+                C7,
+                T_7DG_2,
+                D9,
+                T_11DG_1,
+                C11,
+                T_11DG_3,
+                S4,
+                T_4G
+            };
+            //XF至IIG
+            ArrayList J_XF_SII = new ArrayList
+            {
+                XF,
+                T_IIAG,
+                D1,
+                T_1DG_1,
+                C1,
+                T_1DG_2,
+                D3,
+                T_7DG_1,
+                C7,
+                T_7DG_2,
+                D9,
+                T_11DG_1,
+                C11,
+                T_11DG_2,
+                SII,
+                T_IIG
+            };
+            //XF至4G
+            ArrayList J_XF_S4 = new ArrayList
+            {
+                XF,
+                T_IIAG,
+                D1,
+                T_1DG_1,
+                C1,
+                T_1DG_2,
+                D3,
+                T_7DG_1,
+                C7,
+                T_7DG_2,
+                D9,
+                T_11DG_1,
+                C11,
+                T_11DG_3,
+                S4,
+                T_4G
+            };
+            //XF至IG
+            ArrayList J_XF_SI = new ArrayList
+            {
+                XF,
+                T_IIAG,
+                D1,
+                T_1DG_1,
+                C1,
+                T_1_3DG,
+                C3,
+                T_3DG_2,
+                D5,
+                T_5DG_1,
+                C5,
+                T_5DG_2,
+                D7,
+                T_9DG_1,
+                C9,
+                T_9DG_2,
+                SI,
+                T_IG
+            };
+            //XF至3G
+            ArrayList J_XF_S3 = new ArrayList
+            {
+                XF,
+                T_IIAG,
+                D1,
+                T_1DG_1,
+                C1,
+                T_1_3DG,
+                C3,
+                T_3DG_2,
+                D5,
+                T_5DG_1,
+                C5,
+                T_5DG_2,
+                D7,
+                T_9DG_1,
+                C9,
+                T_9DG_3,
+                S3,
+                T_3G
+            };
+
+            //发车
+            //IG至X
+            ArrayList F_SI_X = new ArrayList
+            {
+                T_IG,
+                SI,
+                T_9DG_2,
+                C9,
+                T_9DG_1,
+                D7,
+                T_5DG_2,
+                C5,
+                T_5DG_1,
+                D5,
+                T_3DG_2,
+                C3,
+                T_3DG_1,
+                X
+            };
+            //IG至XF
+            ArrayList F_SI_XF = new ArrayList
+            {
+                T_IG,
+                SI,
+                T_9DG_2,
+                C9,
+                T_9DG_1,
+                D7,
+                T_5DG_2,
+                C5,
+                T_5DG_1,
+                D5,
+                T_3DG_2,
+                C3,
+                T_1_3DG,
+                C1,
+                T_1DG_1,
+                D1,
+                T_IIAG,
+                XF
+            };
+            //3G至X
+            ArrayList F_S3_X = new ArrayList
+            {
+                T_3G,
+                S3,
+                T_9DG_3,
+                C9,
+                T_9DG_1,
+                D7,
+                T_5DG_2,
+                C5,
+                T_5DG_1,
+                D5,
+                T_3DG_2,
+                C3,
+                T_3DG_1,
+                X
+            };
+            //3G至XF
+            ArrayList F_S3_XF = new ArrayList
+            {
+                T_3G,
+                S3,
+                T_9DG_3,
+                C9,
+                T_9DG_1,
+                D7,
+                T_5DG_2,
+                C5,
+                T_5DG_1,
+                D5,
+                T_3DG_2,
+                C3,
+                T_1_3DG,
+                C1,
+                T_1DG_1,
+                D1,
+                T_IIAG,
+                XF
+            };
+            //IIG至XF
+            ArrayList F_SII_XF = new ArrayList
+            {
+                T_IIG,
+                SII,
+                T_11DG_2,
+                C11,
+                T_11DG_1,
+                D9,
+                T_7DG_2,
+                C7,
+                T_7DG_1,
+                D3,
+                T_1DG_2,
+                C1,
+                T_1DG_1,
+                D1,
+                T_IIAG,
+                XF
+            };
+            //IIG至X
+            ArrayList F_SII_X = new ArrayList
+            {
+                T_IIG,
+                SII,
+                T_11DG_2,
+                C11,
+                T_11DG_1,
+                D9,
+                T_7DG_2,
+                C7,
+                T_5_7DG,
+                C5,
+                T_5DG_1,
+                D5,
+                T_3DG_2,
+                C3,
+                T_3DG_2,
+                X
+            };
+            //4G至XF
+            ArrayList F_SI4_XF = new ArrayList
+            {
+                T_4G,
+                S4,
+                T_11DG_3,
+                C11,
+                T_11DG_1,
+                D9,
+                T_7DG_2,
+                C7,
+                T_7DG_1,
+                D3,
+                T_1DG_2,
+                C1,
+                T_1DG_1,
+                D1,
+                T_IIAG,
+                XF
+            };
+            //IIG至X
+            ArrayList F_S4_X = new ArrayList
+            {
+                T_4G,
+                S4,
+                T_11DG_3,
+                C11,
+                T_11DG_1,
+                D9,
+                T_7DG_2,
+                C7,
+                T_5_7DG,
+                C5,
+                T_5DG_1,
+                D5,
+                T_3DG_2,
+                C3,
+                T_3DG_2,
+                X
+            };
+
+            //调车进路要不就先不做了？
+
+            //站场显示刷新
+            //后续显示变化也使用这个函数
+            for (int i = 0; i < TrackList.Count; i++)
+            {
+                RefreshTrackDisplay((Track)TrackList[i]);
+            }
+            for (int i = 0; i < SignalList.Count; i++)
+            {
+                RefreshSignalDisplay((Signal)SignalList[i]);
+            }
+            for (int i = 0; i < SwitchList.Count; i++)
+            {
+                RefreshSwitchDisplay();
+            }
+            
+
+        }
+        // X引导总锁闭按钮-悬停提示信息
         private void Yzbto_MouseHover(object sender, EventArgs e)
         {
             if (!flag)
@@ -46,11 +542,7 @@ public partial class CBI : Form
             }
             flag = false;
         }
-        /// <summary>
-        /// 总取消按钮悬-浮提示信息
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // 总取消按钮悬-浮提示信息
         private void Zqbto_MouseHover(object sender, EventArgs e)
         {
             if (!flag)
@@ -71,11 +563,7 @@ public partial class CBI : Form
             }
             flag = false;
         }
-        /// <summary>
-        /// 总人解按钮-悬浮提示信息
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // 总人解按钮-悬浮提示信息
         private void Zrbto_MouseHover(object sender, EventArgs e)
         {
             if (!flag)
@@ -98,11 +586,7 @@ public partial class CBI : Form
             }
             flag = false;
         }
-        /// <summary>
-        /// 区段故障解锁按钮-悬浮提示信息
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // 区段故障解锁按钮-悬浮提示信息
         private void Qgbto_MouseHover(object sender, EventArgs e)
         {
             if (!flag)
@@ -125,11 +609,7 @@ public partial class CBI : Form
             }
             flag = false;
         }
-        /// <summary>
-        /// 道岔总定位按钮-悬浮提示信息
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // 道岔总定位按钮-悬浮提示信息
         private void Zdbot_MouseHover(object sender, EventArgs e)
         {
             if (!flag)
@@ -145,11 +625,7 @@ public partial class CBI : Form
             }
             flag = false;
         }
-        /// <summary>
-        /// 道岔总反位按钮-悬浮提示信息
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // 道岔总反位按钮-悬浮提示信息
         private void Zfbto_MouseHover(object sender, EventArgs e)
         {
             if (!flag)
@@ -165,11 +641,7 @@ public partial class CBI : Form
             }
             flag = false;
         }
-        /// <summary>
-        /// 道岔单锁按钮-悬浮提示信息
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // 道岔单锁按钮-悬浮提示信息
         private void Dsbto_MouseHover(object sender, EventArgs e)
         {
             if (!flag)
@@ -186,11 +658,7 @@ public partial class CBI : Form
             }
             flag = false;
         }
-        /// <summary>
-        /// 道岔单解按钮-悬浮提示信息
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // 道岔单解按钮-悬浮提示信息
         private void Djbto_MouseHover(object sender, EventArgs e)
         {
             if (!flag)
@@ -206,11 +674,7 @@ public partial class CBI : Form
             }
             flag = false;
         }
-        /// <summary>
-        /// 道岔封锁按钮-悬浮提示信息
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // 道岔封锁按钮-悬浮提示信息
         private void Dfbto_MouseHover(object sender, EventArgs e)
         {
             if (!flag)
@@ -226,11 +690,7 @@ public partial class CBI : Form
             }
             flag = false;
         }
-        /// <summary>
-        /// 道岔解封按钮-悬浮提示信息
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // 道岔解封按钮-悬浮提示信息
         private void Djbtom_MouseHover(object sender, EventArgs e)
         {
             if (!flag)
@@ -252,7 +712,7 @@ public partial class CBI : Form
 
         //道岔的操作在此处包装为函数，使用时结合条件判定，直接调用实现进行图形的变换
         //道岔的定位
-        //道岔1定位操作
+        //道岔1定位显示
         public void C1_D()
         {
             line_C1_D.BorderColor = Color.Lime;
@@ -644,9 +1104,7 @@ public partial class CBI : Form
 
 
         //信号机灯光显示
-
         //X信号机灯光显示
-       
         //正线通过——绿灯
         public void X_L()
         {
@@ -852,231 +1310,373 @@ public partial class CBI : Form
         //空闲状态
         public void K_3JG()
         {
-            line_3JG.BorderColor = Color.FromArgb(82, 120, 182);
+            Track_3JG.BorderColor = Color.FromArgb(82, 120, 182);
         }
         //占用状态
         public void Z_3JG()
         {
-            line_3JG.BorderColor = Color.Red;
+            Track_3JG.BorderColor = Color.Red;
         }
         //锁闭状态
         public void S_3JG()
         {
-            line_3JG.BorderColor = Color.White;
+            Track_3JG.BorderColor = Color.White;
         }
-        //3DG区段状态
+
+
+        //3DG_1区段状态
         //空闲状态
-        public void K_3DG()
+        public void K_3DG_1()
         {
-            line_3DG_1.BorderColor = Color.FromArgb(82, 120, 182);
-            line_3DG_2.BorderColor = Color.FromArgb(82, 120, 182);
+            Track_3DG_1.BorderColor = Color.FromArgb(82, 120, 182);
         }
         //占用状态
-        public void Z_3DG()
+        public void Z_3DG_1()
         {
-            line_3DG_1.BorderColor = Color.Red;
-            line_3DG_2.BorderColor = Color.Red;
+            Track_3DG_1.BorderColor = Color.Red;
         }
         //锁闭状态
-        public void S_3DG()
+        public void S_3DG_1()
         {
-            line_3DG_1.BorderColor = Color.White;
-            line_3DG_2.BorderColor = Color.White;
+            Track_3DG_1.BorderColor = Color.White;
         }
-        //5DG区段状态
+        //3DG_2区段状态
         //空闲状态
-        public void K_5DG()
+        public void K_3DG_2()
         {
-            line_5DG_1.BorderColor = Color.FromArgb(82, 120, 182);
-            line_5DG_2.BorderColor = Color.FromArgb(82, 120, 182);
+            Track_3DG_2.BorderColor = Color.FromArgb(82, 120, 182);
         }
         //占用状态
-        public void Z_5DG()
+        public void Z_3DG_2()
         {
-            line_5DG_1.BorderColor = Color.Red;
-            line_5DG_2.BorderColor = Color.Red;
+            Track_3DG_2.BorderColor = Color.Red;
         }
         //锁闭状态
-        public void S_5DG()
+        public void S_3DG_2()
         {
-            line_5DG_1.BorderColor = Color.White;
-            line_5DG_2.BorderColor = Color.White;
+            Track_3DG_2.BorderColor = Color.White;
         }
-        //9DG区段状态
+
+
+        //5DG_1区段状态
         //空闲状态
-        public void K_9DG()
+        public void K_5DG_1()
         {
-            line_9DG_1.BorderColor = Color.FromArgb(82, 120, 182);
-            line_9DG_2.BorderColor = Color.FromArgb(82, 120, 182);
+            Track_5DG_1.BorderColor = Color.FromArgb(82, 120, 182);
         }
         //占用状态
-        public void Z_9DG()
+        public void Z_5DG_1()
         {
-            line_9DG_1.BorderColor = Color.Red;
-            line_9DG_2.BorderColor = Color.Red;
+            Track_5DG_1.BorderColor = Color.Red;
         }
         //锁闭状态
-        public void S_9DG()
+        public void S_5DG_1()
         {
-            line_9DG_1.BorderColor = Color.White;
-            line_9DG_2.BorderColor = Color.White;
+            Track_5DG_1.BorderColor = Color.White;
         }
+        //5DG_2区段状态
+        //空闲状态
+        public void K_5DG_2()
+        {
+            Track_5DG_2.BorderColor = Color.FromArgb(82, 120, 182);
+        }
+        //占用状态
+        public void Z_5DG_2()
+        {
+            Track_5DG_2.BorderColor = Color.Red;
+        }
+        //锁闭状态
+        public void S_5DG_2()
+        {
+            Track_5DG_2.BorderColor = Color.White;
+        }
+
+
+        //9DG_1区段状态
+        //空闲状态
+        public void K_9DG_1()
+        {
+            Track_9DG_1.BorderColor = Color.FromArgb(82, 120, 182);
+        }
+        //占用状态
+        public void Z_9DG_1()
+        {
+            Track_9DG_1.BorderColor = Color.Red;
+        }
+        //锁闭状态
+        public void S_9DG_1()
+        {
+            Track_9DG_1.BorderColor = Color.White;
+        }
+        //9DG_2区段状态
+        //空闲状态
+        public void K_9DG_2()
+        {
+            Track_9DG_2.BorderColor = Color.FromArgb(82, 120, 182);
+        }
+        //占用状态
+        public void Z_9DG_2()
+        {
+
+            Track_9DG_2.BorderColor = Color.Red;
+        }
+        //锁闭状态
+        public void S_9DG_2()
+        {
+            Track_9DG_2.BorderColor = Color.White;
+        }
+        //9DG_3区段状态
+        //空闲状态
+        public void K_9DG_3()
+        {
+            Track_9DG_3.BorderColor = Color.FromArgb(82, 120, 182);
+            Track_9DG_4.BorderColor = Color.FromArgb(82, 120, 182);
+        }
+        //占用状态
+        public void Z_9DG_3()
+        {
+            Track_9DG_3.BorderColor = Color.Red;
+            Track_9DG_4.BorderColor = Color.Red;
+        }
+        //锁闭状态
+        public void S_9DG_3()
+        {
+            Track_9DG_3.BorderColor = Color.White;
+            Track_9DG_4.BorderColor = Color.White;
+        }
+
+
         //1LQ区段状态
         //空闲状态
         public void K_1LQ()
         {
-            line_1LQ.BorderColor = Color.FromArgb(82, 120, 182);
+            Track_1LQ.BorderColor = Color.FromArgb(82, 120, 182);
         }
         //占用状态
         public void Z_1LQ()
         {
-            line_1LQ.BorderColor = Color.Red;
+            Track_1LQ.BorderColor = Color.Red;
         }
         //锁闭状态
         public void S_1LQ()
         {
-            line_1LQ.BorderColor = Color.White;
+            Track_1LQ.BorderColor = Color.White;
         }
+
+
         //IIAG区段状态
         //空闲状态
         public void K_IIAG()
         {
-            line_IIAG.BorderColor = Color.FromArgb(82, 120, 182);
+            Track_IIAG.BorderColor = Color.FromArgb(82, 120, 182);
         }
         //占用状态
         public void Z_IIAG()
         {
-            line_IIAG.BorderColor = Color.Red;
+            Track_IIAG.BorderColor = Color.Red;
         }
         //锁闭状态
         public void S_IIAG()
         {
-            line_IIAG.BorderColor = Color.White;
+            Track_IIAG.BorderColor = Color.White;
         }
-        //1DG区段状态
+
+
+        //1DG_1区段状态
         //空闲状态
-        public void K_1DG()
+        public void K_1DG_1()
         {
-            line_1DG_1.BorderColor = Color.FromArgb(82, 120, 182);
-            line_1DG_2.BorderColor = Color.FromArgb(82, 120, 182);
+            Track_1DG_1.BorderColor = Color.FromArgb(82, 120, 182);
         }
         //占用状态
-        public void Z_1DG()
+        public void Z_1DG_1()
         {
-            line_1DG_1.BorderColor = Color.Red;
-            line_1DG_2.BorderColor = Color.Red;
+            Track_1DG_1.BorderColor = Color.Red;
         }
         //锁闭状态
-        public void S_1DG()
+        public void S_1DG_1()
         {
-            line_1DG_1.BorderColor = Color.White;
-            line_1DG_2.BorderColor = Color.White;
+            Track_1DG_1.BorderColor = Color.White;
         }
-        //7DG区段状态
+        //1DG_2区段状态
         //空闲状态
-        public void K_7DG()
+        public void K_1DG_2()
         {
-            line_7DG_1.BorderColor = Color.FromArgb(82, 120, 182);
-            line_7DG_2.BorderColor = Color.FromArgb(82, 120, 182);
+            Track_1DG_2.BorderColor = Color.FromArgb(82, 120, 182);
         }
         //占用状态
-        public void Z_7DG()
+        public void Z_1DG_2()
         {
-            line_7DG_1.BorderColor = Color.Red;
-            line_7DG_2.BorderColor = Color.Red;
+            Track_1DG_2.BorderColor = Color.Red;
         }
         //锁闭状态
-        public void S_7DG()
+        public void S_1DG_2()
         {
-            line_7DG_1.BorderColor = Color.White;
-            line_7DG_2.BorderColor = Color.White;
+            Track_1DG_2.BorderColor = Color.White;
         }
-        //11DG区段状态
+
+
+        //7DG_1区段状态
         //空闲状态
-        public void K_11DG()
+        public void K_7DG_1()
         {
-            line_11DG_1.BorderColor = Color.FromArgb(82, 120, 182);
-            line_11DG_2.BorderColor = Color.FromArgb(82, 120, 182);
+            Track_7DG_1.BorderColor = Color.FromArgb(82, 120, 182);
         }
         //占用状态
-        public void Z_11DG()
+        public void Z_7DG_1()
         {
-            line_11DG_1.BorderColor = Color.Red;
-            line_11DG_2.BorderColor = Color.Red;
+            Track_7DG_1.BorderColor = Color.Red;
         }
         //锁闭状态
-        public void S_11DG()
+        public void S_7DG_1()
         {
-            line_11DG_1.BorderColor = Color.White;
-            line_11DG_2.BorderColor = Color.White;
+            Track_7DG_1.BorderColor = Color.White;
         }
+        //7DG_2区段状态
+        //空闲状态
+        public void K_7DG_2()
+        {
+            Track_7DG_2.BorderColor = Color.FromArgb(82, 120, 182);
+        }
+        //占用状态
+        public void Z_7DG_2()
+        {
+            Track_7DG_2.BorderColor = Color.Red;
+        }
+        //锁闭状态
+        public void S_7DG_2()
+        {
+            Track_7DG_2.BorderColor = Color.White;
+        }
+
+
+        //11DG_1区段状态
+        //空闲状态
+        public void K_11DG_1()
+        {
+            Track_11DG_1.BorderColor = Color.FromArgb(82, 120, 182);
+        }
+        //占用状态
+        public void Z_11DG_1()
+        {
+            Track_11DG_1.BorderColor = Color.Red;
+        }
+        //锁闭状态
+        public void S_11DG_1()
+        {
+            Track_11DG_1.BorderColor = Color.White;
+        }
+        //11DG_2区段状态
+        //空闲状态
+        public void K_11DG_2()
+        {
+
+            Track_11DG_2.BorderColor = Color.FromArgb(82, 120, 182);
+        }
+        //占用状态
+        public void Z_11DG_2()
+        {
+            Track_11DG_2.BorderColor = Color.Red;
+        }
+        //锁闭状态
+        public void S_11DG_2()
+        {
+            Track_11DG_2.BorderColor = Color.White;
+        }
+        //11DG_3区段状态
+        //空闲状态
+        public void K_11DG_3()
+        {
+            Track_11DG_3.BorderColor = Color.FromArgb(82, 120, 182);
+            Track_11DG_4.BorderColor = Color.FromArgb(82, 120, 182);
+        }
+        //占用状态
+        public void Z_11DG_3()
+        {
+            Track_11DG_3.BorderColor = Color.Red;
+            Track_11DG_4.BorderColor = Color.Red;
+        }
+        //锁闭状态
+        public void S_11DG_3()
+        {
+            Track_11DG_3.BorderColor = Color.White;
+            Track_11DG_4.BorderColor = Color.White;
+        }
+
+
         //IG区段状态
         //空闲状态
         public void K_IG()
         {
-            line_IG.BorderColor = Color.FromArgb(82, 120, 182);
+            Track_IG.BorderColor = Color.FromArgb(82, 120, 182);
         }
         //占用状态
         public void Z_IG()
         {
-            line_IG.BorderColor = Color.Red;
+            Track_IG.BorderColor = Color.Red;
         }
         //锁闭状态
         public void S_IG()
         {
-            line_IG.BorderColor = Color.White;
+            Track_IG.BorderColor = Color.White;
         }
+
+
         //IIG区段状态
         //空闲状态
         public void K_IIG()
         {
-            line_IIG.BorderColor = Color.FromArgb(82, 120, 182);
+            Track_IIG.BorderColor = Color.FromArgb(82, 120, 182);
         }
         //占用状态
         public void Z_IIG()
         {
-            line_IIG.BorderColor = Color.Red;
+            Track_IIG.BorderColor = Color.Red;
         }
         //锁闭状态
         public void S_IIG()
         {
-            line_IIG.BorderColor = Color.White;
+            Track_IIG.BorderColor = Color.White;
         }
+
+
         //3G区段状态1
         //空闲状态
         public void K_3G()
         {
-            line_3G.BorderColor = Color.FromArgb(82, 120, 182);
+            Track_3G.BorderColor = Color.FromArgb(82, 120, 182);
         }
         //占用状态
         public void Z_3G()
         {
-            line_3G.BorderColor = Color.Red;
+            Track_3G.BorderColor = Color.Red;
         }
         //锁闭状态
         public void S_3G()
         {
-            line_3G.BorderColor = Color.White;
+            Track_3G.BorderColor = Color.White;
         }
+
+
         //4G区段状态
         //空闲状态
         public void K_4G()
         {
-            line_4G.BorderColor = Color.FromArgb(82, 120, 182);
+            Track_4G.BorderColor = Color.FromArgb(82, 120, 182);
         }
         //占用状态
         public void Z_4G()
         {
-            line_4G.BorderColor = Color.Red;
+            Track_4G.BorderColor = Color.Red;
         }
         //锁闭状态
         public void S_4G()
         {
-            line_4G.BorderColor = Color.White;
+            Track_4G.BorderColor = Color.White;
         }
 
 
-    //全局变量，传输控件名称
+        //全局变量，传输控件名称
         //全局变量，接受正在单击的lineshape控件（轨道，道岔）
         public Microsoft.VisualBasic.PowerPacks.LineShape nnn = null;
 
@@ -1088,7 +1688,6 @@ public partial class CBI : Form
         //获取轨道区段/道岔名称的函数
         public void Trans_name_G(object sender, EventArgs e)
         {
-            nnn = sender as Microsoft.VisualBasic.PowerPacks.LineShape;
             Con_Name = nnn.Name;
         }
         //全局变量，接受正在单击的Rectangleshape控件（信号机）
@@ -1096,16 +1695,14 @@ public partial class CBI : Form
         //获取信号机按钮名称的函数
         public void Trans_name_X(object sender, EventArgs e)
         {
-            mmm = sender as Microsoft.VisualBasic.PowerPacks.RectangleShape;
             Con_Name = mmm.Name;
         }
         //获取label名称的函数
         public void Trans_name_L(object sender, EventArgs e)
         {
-            kkk = sender as Label;
             Con_Name = kkk.Name;
         }
-
+        //轨道区段占用显示
         public void Gd_Functions_Z(object sender, EventArgs e)
         {
             //3JG
@@ -1116,17 +1713,21 @@ public partial class CBI : Form
             //3DG
             else if (Con_Name.Equals("line_3DG_1") || Con_Name.Equals("line_3DG_2") || Con_Name.Equals("label_3DG"))
             {
-                Z_3DG();
+                Z_3DG_1();
+                Z_3DG_2();
             }
             //5DG
             else if (Con_Name.Equals("line_5DG_1") || Con_Name.Equals("line_5DG_2") || Con_Name.Equals("label_5DG"))
             {
-                Z_5DG();
+                Z_5DG_1();
+                Z_5DG_2();
             }
             //9DG
             else if (Con_Name.Equals("line_9DG_1") || Con_Name.Equals("line_9DG_2") || Con_Name.Equals("label_9DG"))
             {
-                Z_9DG();
+                Z_9DG_1();
+                Z_9DG_2();
+                Z_9DG_3();
             }
             //1LQ
             else if (Con_Name.Equals("line_1LQ") || Con_Name.Equals("label_1LQ"))
@@ -1141,17 +1742,21 @@ public partial class CBI : Form
             //1DG
             else if (Con_Name.Equals("line_1DG_1") || Con_Name.Equals("line_1DG_2") || Con_Name.Equals("label_1DG"))
             {
-                Z_1DG();
+                Z_1DG_1();
+                Z_1DG_2();
             }
             //7DG
             else if (Con_Name.Equals("line_7DG_1") || Con_Name.Equals("line_7DG_2") || Con_Name.Equals("label_7DG"))
             {
-                Z_7DG();
+                Z_7DG_1();
+                Z_7DG_2();
             }
             //11Dg
             else if (Con_Name.Equals("line_11DG_1") || Con_Name.Equals("line_11DG_2") || Con_Name.Equals("label_11DG"))
             {
-                Z_11DG();
+                Z_11DG_1();
+                Z_11DG_2();
+                Z_11DG_3();
             }
             //IG
             else if (Con_Name.Equals("line_IG") || Con_Name.Equals("label_IG"))
@@ -1174,88 +1779,274 @@ public partial class CBI : Form
                 Z_4G();
             }
         }
-
+        //轨道区段空闲显示
         public void Gd_Functions_C(object sender, EventArgs e)
         {
             //3JG
-            if (Con_Name.Equals("line_3JG") || Con_Name.Equals("label_3JG"))
+            if (Con_Name.Equals("Track_3JG") || Con_Name.Equals("label_3JG"))
             {
                 K_3JG();
             }
             //3DG
-            else if (Con_Name.Equals("line_3DG_1") || Con_Name.Equals("line_3DG_2") || Con_Name.Equals("label_3DG"))
+            else if (Con_Name.Equals("Track_3DG_1") || Con_Name.Equals("Track_3DG_2") || Con_Name.Equals("label_3DG"))
             {
-                K_3DG();
+                K_3DG_1();
+                K_3DG_2();
             }
             //5DG
-            else if (Con_Name.Equals("line_5DG_1") || Con_Name.Equals("line_5DG_2") || Con_Name.Equals("label_5DG"))
+            else if (Con_Name.Equals("Track_5DG_1") || Con_Name.Equals("Track_5DG_2") || Con_Name.Equals("label_5DG"))
             {
-                K_5DG();
+                K_5DG_1();
+                K_5DG_2();
             }
             //9DG
-            else if (Con_Name.Equals("line_9DG_1") || Con_Name.Equals("line_9DG_2") || Con_Name.Equals("label_9DG"))
+            else if (Con_Name.Equals("Track_9DG_1") || Con_Name.Equals("Track_9DG_2") || Con_Name.Equals("label_9DG"))
             {
-                K_9DG();
+                K_9DG_1();
+                K_9DG_2();
+                K_9DG_3();
             }
             //1LQ
-            else if (Con_Name.Equals("line_1LQ") || Con_Name.Equals("label_1LQ"))
+            else if (Con_Name.Equals("Track_1LQ") || Con_Name.Equals("label_1LQ"))
             {
                 K_1LQ();
             }
             //IIAG
-            else if (Con_Name.Equals("line_IIAG") || Con_Name.Equals("label_IIAG"))
+            else if (Con_Name.Equals("Track_IIAG") || Con_Name.Equals("label_IIAG"))
             {
                 K_IIAG();
             }
             //1DG
-            else if (Con_Name.Equals("line_1DG_1") || Con_Name.Equals("line_1DG_2") || Con_Name.Equals("label_1DG"))
+            else if (Con_Name.Equals("Track_1DG_1") || Con_Name.Equals("Track_1DG_2") || Con_Name.Equals("label_1DG"))
             {
-                K_1DG();
+                K_1DG_1();
+                K_1DG_2();
             }
             //7DG
-            else if (Con_Name.Equals("line_7DG_1") || Con_Name.Equals("line_7DG_2") || Con_Name.Equals("label_7DG"))
+            else if (Con_Name.Equals("Track_7DG_1") || Con_Name.Equals("Track_7DG_2") || Con_Name.Equals("label_7DG"))
             {
-                K_7DG();
+                K_7DG_1();
+                K_7DG_2();
             }
             //11Dg
-            else if (Con_Name.Equals("line_11DG_1") || Con_Name.Equals("line_11DG_2") || Con_Name.Equals("label_11DG"))
+            else if (Con_Name.Equals("Track_11DG_1") || Con_Name.Equals("Track_11DG_2") || Con_Name.Equals("label_11DG"))
             {
-                K_11DG();
+                K_11DG_1();
+                K_11DG_2();
+                K_11DG_3();
             }
             //IG
-            else if (Con_Name.Equals("line_IG") || Con_Name.Equals("label_IG"))
+            else if (Con_Name.Equals("Track_IG") || Con_Name.Equals("label_IG"))
             {
                 K_IG();
             }
             //IIG
-            else if (Con_Name.Equals("line_IIG") || Con_Name.Equals("label_IIG"))
+            else if (Con_Name.Equals("Track_IIG") || Con_Name.Equals("label_IIG"))
             {
                 K_IIG();
             }
             //3G
-            else if (Con_Name.Equals("line_3G") || Con_Name.Equals("label_3G"))
+            else if (Con_Name.Equals("Track_3G") || Con_Name.Equals("label_3G"))
             {
                 K_3G();
             }
             //4G
-            else if (Con_Name.Equals("line_4G") || Con_Name.Equals("label_4G"))
+            else if (Con_Name.Equals("Track_4G") || Con_Name.Equals("label_4G"))
             {
                 K_4G();
             }
         }
-
+        //轨道区段锁闭显示
+        public void Gd_Functions_S(object sender, EventArgs e)
+        {
+            //3JG
+            if (Con_Name.Equals("Track_3JG") || Con_Name.Equals("label_3JG"))
+            {
+                S_3JG();
+            }
+            //3DG
+            else if (Con_Name.Equals("Track_3DG_1") || Con_Name.Equals("Track_3DG_2") || Con_Name.Equals("label_3DG"))
+            {
+                S_3DG_1();
+                S_3DG_2();
+            }
+            //5DG
+            else if (Con_Name.Equals("Track_5DG_1") || Con_Name.Equals("Track_5DG_2") || Con_Name.Equals("label_5DG"))
+            {
+                S_5DG_1();
+                S_5DG_2();
+            }
+            //9DG
+            else if (Con_Name.Equals("Track_9DG_1") || Con_Name.Equals("Track_9DG_2") || Con_Name.Equals("label_9DG"))
+            {
+                S_9DG_1();
+                S_9DG_2();
+                K_9DG_3();
+            }
+            //1LQ
+            else if (Con_Name.Equals("Track_1LQ") || Con_Name.Equals("label_1LQ"))
+            {
+                S_1LQ();
+            }
+            //IIAG
+            else if (Con_Name.Equals("Track_IIAG") || Con_Name.Equals("label_IIAG"))
+            {
+                S_IIAG();
+            }
+            //1DG
+            else if (Con_Name.Equals("Track_1DG_1") || Con_Name.Equals("Track_1DG_2") || Con_Name.Equals("label_1DG"))
+            {
+                S_1DG_1();
+                S_1DG_2();
+            }
+            //7DG
+            else if (Con_Name.Equals("Track_7DG_1") || Con_Name.Equals("Track_7DG_2") || Con_Name.Equals("label_7DG"))
+            {
+                S_7DG_1();
+                S_7DG_2();
+            }
+            //11Dg
+            else if (Con_Name.Equals("Track_11DG_1") || Con_Name.Equals("Track_11DG_2") || Con_Name.Equals("label_11DG"))
+            {
+                S_11DG_1();
+                S_11DG_2();
+                S_11DG_3();
+            }
+            //IG
+            else if (Con_Name.Equals("Track_IG") || Con_Name.Equals("label_IG"))
+            {
+                S_IG();
+            }
+            //IIG
+            else if (Con_Name.Equals("Track_IIG") || Con_Name.Equals("label_IIG"))
+            {
+                S_IIG();
+            }
+            //3G
+            else if (Con_Name.Equals("Track_3G") || Con_Name.Equals("label_3G"))
+            {
+                S_3G();
+            }
+            //4G
+            else if (Con_Name.Equals("Track_4G") || Con_Name.Equals("label_4G"))
+            {
+                S_4G();
+            }
+        }
+        //信号机故障设置：灯丝断丝
         public void X_Functions_D(object sender, EventArgs e)
         {
             X_D1.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Transparent;
             X_D2.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Transparent;
             X_1DJ.BackColor = Color.Red;
         }
-
+        //信号机清除故障：灯丝完好
         public void X_Functions_Q(object sender, EventArgs e)
         {
-            X_D1.BackStyle =Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            X_D1.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             X_D2.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             X_1DJ.BackColor = Color.Lime;
+        }
+        
+        //信号机灯光显示
+        //红灯
+        public void RedLight(Signal signal)
+        {
+
+        }
+
+        public void CBI_Load(object sender, EventArgs e)
+        {
+
+        }
+        //站场显示刷新
+        //轨道区段
+        public void RefreshTrackDisplay(Track track)
+        {
+            track.Name = Con_Name;
+            if (track.DGJ == true && track.Locking == false&&track.Guiding==false)
+            {
+                Gd_Functions_C(track,null);
+            }
+            else if (track.DGJ == true && track.Locking == true )
+            {
+                Gd_Functions_S(track, null);
+            }
+            else if(track.DGJ==true&&track.Guiding==true)
+            {
+                Gd_Functions_S(track, null);
+            }
+            else if (track.DGJ==false)
+            {
+                Gd_Functions_Z(track, null);
+            }
+        }
+        //信号机
+        public void RefreshSignalDisplay(Signal signal)
+        {
+            if(signal is InboundSignal)//进站信号机
+            {
+                if(signal.State==0)//0代表禁止越过，红灯
+                {
+                    
+                }
+                else if(signal.State==1)//1代表正线通过，绿灯（本次程序当中用不到）
+                {
+
+                }
+                else if (signal.State == 2)//2代表正线接车，黄灯
+                {
+
+                }
+                else if (signal.State == 3)//3代表侧线接车，双黄灯
+                {
+
+                }
+                else if (signal.State == 4)//4代表引导接车，红白灯
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            else if(signal is ShuntingSignal)//调车信号机
+            {
+                if(signal.State==0)//禁止越过（接发车进路当中不检查调车信号机）
+                {
+
+                }
+                else if(signal.State==5)//允许调车
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                if(signal.State==0)//禁止越过
+                {
+
+                }
+                else if(signal.State==5)//允许调车
+                {
+
+                }
+                else if(signal.State==6)//发车
+                {
+
+                }
+            }
+        }
+
+        //道岔
+        public void RefreshSwitchDisplay()
+        {
+
         }
     }
 }

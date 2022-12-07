@@ -30,6 +30,7 @@ namespace Computer_interlocking_system
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CBI));
             this.yzbto = new System.Windows.Forms.Button();
             this.zqbto = new System.Windows.Forms.Button();
             this.zrbto = new System.Windows.Forms.Button();
@@ -92,16 +93,16 @@ namespace Computer_interlocking_system
             this.灯丝断丝ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.清除故障ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.X_D1 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.line_4G = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_4G = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.Gd_Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.故障占用ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.出清ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.line_IIG = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_IIG = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_J_S4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_C11S4_2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_11DG_4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_JSII = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_11DG_2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_C11S4_1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_11DG_2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_11DG_3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_C11_F = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.Dc_Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.定位ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,45 +112,45 @@ namespace Computer_interlocking_system
             this.挤岔ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.清除故障ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.line_C11_D = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_11DG_1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_11DG_1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_J_D9 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_7DG_2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_IG = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_7DG_2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_IG = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_J_SI = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_9DG_2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_3G = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_9DG_2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_3G = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_J_S3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_C9S3_2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_C9S3_1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_9DG_4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_9DG_3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_C9_F = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_C9_D = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_9DG_1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_9DG_1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_J_D7 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_5DG_2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_7DG_1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_5DG_2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_7DG_1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_C7_D = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_C7_F = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_C5C7 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_C5_F = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_C5_D = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_5DG_1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_5DG_1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_J_D3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_1DG_2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_1DG_1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_1DG_2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_1DG_1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_J_D1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.linE_J_D5 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_3DG_2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_3DG_2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_C1C3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_C3_F = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_C3_D = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_C1_F = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_C1_D = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_IIAG = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_3DG_1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_IIAG = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_3DG_1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line_J_XF = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.line3_J_X = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_1LQ = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.line_3JG = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_1LQ = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.Track_3JG = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.beijing = new System.Windows.Forms.Label();
             this.label_3JG = new System.Windows.Forms.Label();
             this.label_3DG = new System.Windows.Forms.Label();
@@ -188,9 +189,11 @@ namespace Computer_interlocking_system
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.Train = new System.Windows.Forms.PictureBox();
             this.X_Menu.SuspendLayout();
             this.Gd_Menu.SuspendLayout();
             this.Dc_Menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Train)).BeginInit();
             this.SuspendLayout();
             // 
             // yzbto
@@ -429,54 +432,54 @@ namespace Computer_interlocking_system
             this.lineShape2,
             this.X_D2,
             this.X_D1,
-            this.line_4G,
-            this.line_IIG,
+            this.Track_4G,
+            this.Track_IIG,
             this.line_J_S4,
-            this.line_C11S4_2,
+            this.Track_11DG_4,
             this.line_JSII,
-            this.line_11DG_2,
-            this.line_C11S4_1,
+            this.Track_11DG_2,
+            this.Track_11DG_3,
             this.line_C11_F,
             this.line_C11_D,
-            this.line_11DG_1,
+            this.Track_11DG_1,
             this.line_J_D9,
-            this.line_7DG_2,
-            this.line_IG,
+            this.Track_7DG_2,
+            this.Track_IG,
             this.line_J_SI,
-            this.line_9DG_2,
-            this.line_3G,
+            this.Track_9DG_2,
+            this.Track_3G,
             this.line_J_S3,
-            this.line_C9S3_2,
-            this.line_C9S3_1,
+            this.Track_9DG_4,
+            this.Track_9DG_3,
             this.line_C9_F,
             this.line_C9_D,
-            this.line_9DG_1,
+            this.Track_9DG_1,
             this.line_J_D7,
-            this.line_5DG_2,
-            this.line_7DG_1,
+            this.Track_5DG_2,
+            this.Track_7DG_1,
             this.line_C7_D,
             this.line_C7_F,
             this.line_C5C7,
             this.line_C5_F,
             this.line_C5_D,
-            this.line_5DG_1,
+            this.Track_5DG_1,
             this.line_J_D3,
-            this.line_1DG_2,
-            this.line_1DG_1,
+            this.Track_1DG_2,
+            this.Track_1DG_1,
             this.line_J_D1,
             this.linE_J_D5,
-            this.line_3DG_2,
+            this.Track_3DG_2,
             this.line_C1C3,
             this.line_C3_F,
             this.line_C3_D,
             this.line_C1_F,
             this.line_C1_D,
-            this.line_IIAG,
-            this.line_3DG_1,
+            this.Track_IIAG,
+            this.Track_3DG_1,
             this.line_J_XF,
             this.line3_J_X,
-            this.line_1LQ,
-            this.line_3JG});
+            this.Track_1LQ,
+            this.Track_3JG});
             this.shapeContainer1.Size = new System.Drawing.Size(1262, 673);
             this.shapeContainer1.TabIndex = 11;
             this.shapeContainer1.TabStop = false;
@@ -927,17 +930,17 @@ namespace Computer_interlocking_system
             this.X_D1.Name = "X_D1";
             this.X_D1.Size = new System.Drawing.Size(14, 14);
             // 
-            // line_4G
+            // Track_4G
             // 
-            this.line_4G.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_4G.BorderWidth = 3;
-            this.line_4G.ContextMenuStrip = this.Gd_Menu;
-            this.line_4G.Name = "line_4G";
-            this.line_4G.X1 = 890;
-            this.line_4G.X2 = 1440;
-            this.line_4G.Y1 = 418;
-            this.line_4G.Y2 = 418;
-            this.line_4G.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_4G.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_4G.BorderWidth = 3;
+            this.Track_4G.ContextMenuStrip = this.Gd_Menu;
+            this.Track_4G.Name = "Track_4G";
+            this.Track_4G.X1 = 890;
+            this.Track_4G.X2 = 1440;
+            this.Track_4G.Y1 = 418;
+            this.Track_4G.Y2 = 418;
+            this.Track_4G.Click += new System.EventHandler(this.Trans_name_G);
             // 
             // Gd_Menu
             // 
@@ -962,17 +965,17 @@ namespace Computer_interlocking_system
             this.出清ToolStripMenuItem.Text = "出清";
             this.出清ToolStripMenuItem.Click += new System.EventHandler(this.Gd_Functions_C);
             // 
-            // line_IIG
+            // Track_IIG
             // 
-            this.line_IIG.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_IIG.BorderWidth = 3;
-            this.line_IIG.ContextMenuStrip = this.Gd_Menu;
-            this.line_IIG.Name = "line_IIG";
-            this.line_IIG.X1 = 900;
-            this.line_IIG.X2 = 1440;
-            this.line_IIG.Y1 = 360;
-            this.line_IIG.Y2 = 360;
-            this.line_IIG.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_IIG.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_IIG.BorderWidth = 3;
+            this.Track_IIG.ContextMenuStrip = this.Gd_Menu;
+            this.Track_IIG.Name = "Track_IIG";
+            this.Track_IIG.X1 = 900;
+            this.Track_IIG.X2 = 1440;
+            this.Track_IIG.Y1 = 360;
+            this.Track_IIG.Y2 = 360;
+            this.Track_IIG.Click += new System.EventHandler(this.Trans_name_G);
             // 
             // line_J_S4
             // 
@@ -984,15 +987,15 @@ namespace Computer_interlocking_system
             this.line_J_S4.Y1 = 408;
             this.line_J_S4.Y2 = 428;
             // 
-            // line_C11S4_2
+            // Track_11DG_4
             // 
-            this.line_C11S4_2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_C11S4_2.BorderWidth = 3;
-            this.line_C11S4_2.Name = "line_C11S4_2";
-            this.line_C11S4_2.X1 = 820;
-            this.line_C11S4_2.X2 = 890;
-            this.line_C11S4_2.Y1 = 418;
-            this.line_C11S4_2.Y2 = 418;
+            this.Track_11DG_4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_11DG_4.BorderWidth = 3;
+            this.Track_11DG_4.Name = "Track_11DG_4";
+            this.Track_11DG_4.X1 = 820;
+            this.Track_11DG_4.X2 = 890;
+            this.Track_11DG_4.Y1 = 418;
+            this.Track_11DG_4.Y2 = 418;
             // 
             // line_JSII
             // 
@@ -1004,27 +1007,27 @@ namespace Computer_interlocking_system
             this.line_JSII.Y1 = 350;
             this.line_JSII.Y2 = 370;
             // 
-            // line_11DG_2
+            // Track_11DG_2
             // 
-            this.line_11DG_2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_11DG_2.BorderWidth = 3;
-            this.line_11DG_2.ContextMenuStrip = this.Gd_Menu;
-            this.line_11DG_2.Name = "line_11DG_2";
-            this.line_11DG_2.X1 = 730;
-            this.line_11DG_2.X2 = 900;
-            this.line_11DG_2.Y1 = 360;
-            this.line_11DG_2.Y2 = 360;
-            this.line_11DG_2.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_11DG_2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_11DG_2.BorderWidth = 3;
+            this.Track_11DG_2.ContextMenuStrip = this.Gd_Menu;
+            this.Track_11DG_2.Name = "Track_11DG_2";
+            this.Track_11DG_2.X1 = 730;
+            this.Track_11DG_2.X2 = 900;
+            this.Track_11DG_2.Y1 = 360;
+            this.Track_11DG_2.Y2 = 360;
+            this.Track_11DG_2.Click += new System.EventHandler(this.Trans_name_G);
             // 
-            // line_C11S4_1
+            // Track_11DG_3
             // 
-            this.line_C11S4_1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_C11S4_1.BorderWidth = 3;
-            this.line_C11S4_1.Name = "line_C11S4_1";
-            this.line_C11S4_1.X1 = 730;
-            this.line_C11S4_1.X2 = 820;
-            this.line_C11S4_1.Y1 = 370;
-            this.line_C11S4_1.Y2 = 418;
+            this.Track_11DG_3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_11DG_3.BorderWidth = 3;
+            this.Track_11DG_3.Name = "Track_11DG_3";
+            this.Track_11DG_3.X1 = 730;
+            this.Track_11DG_3.X2 = 820;
+            this.Track_11DG_3.Y1 = 370;
+            this.Track_11DG_3.Y2 = 418;
             // 
             // line_C11_F
             // 
@@ -1105,17 +1108,17 @@ namespace Computer_interlocking_system
             this.line_C11_D.Y2 = 360;
             this.line_C11_D.Click += new System.EventHandler(this.Trans_name_G);
             // 
-            // line_11DG_1
+            // Track_11DG_1
             // 
-            this.line_11DG_1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_11DG_1.BorderWidth = 3;
-            this.line_11DG_1.ContextMenuStrip = this.Gd_Menu;
-            this.line_11DG_1.Name = "line_11DG_1";
-            this.line_11DG_1.X1 = 690;
-            this.line_11DG_1.X2 = 710;
-            this.line_11DG_1.Y1 = 360;
-            this.line_11DG_1.Y2 = 360;
-            this.line_11DG_1.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_11DG_1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_11DG_1.BorderWidth = 3;
+            this.Track_11DG_1.ContextMenuStrip = this.Gd_Menu;
+            this.Track_11DG_1.Name = "Track_11DG_1";
+            this.Track_11DG_1.X1 = 690;
+            this.Track_11DG_1.X2 = 710;
+            this.Track_11DG_1.Y1 = 360;
+            this.Track_11DG_1.Y2 = 360;
+            this.Track_11DG_1.Click += new System.EventHandler(this.Trans_name_G);
             // 
             // line_J_D9
             // 
@@ -1127,28 +1130,28 @@ namespace Computer_interlocking_system
             this.line_J_D9.Y1 = 350;
             this.line_J_D9.Y2 = 370;
             // 
-            // line_7DG_2
+            // Track_7DG_2
             // 
-            this.line_7DG_2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_7DG_2.BorderWidth = 3;
-            this.line_7DG_2.Name = "line_7DG_2";
-            this.line_7DG_2.X1 = 587;
-            this.line_7DG_2.X2 = 690;
-            this.line_7DG_2.Y1 = 360;
-            this.line_7DG_2.Y2 = 360;
-            this.line_7DG_2.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_7DG_2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_7DG_2.BorderWidth = 3;
+            this.Track_7DG_2.Name = "Track_7DG_2";
+            this.Track_7DG_2.X1 = 587;
+            this.Track_7DG_2.X2 = 690;
+            this.Track_7DG_2.Y1 = 360;
+            this.Track_7DG_2.Y2 = 360;
+            this.Track_7DG_2.Click += new System.EventHandler(this.Trans_name_G);
             // 
-            // line_IG
+            // Track_IG
             // 
-            this.line_IG.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_IG.BorderWidth = 3;
-            this.line_IG.ContextMenuStrip = this.Gd_Menu;
-            this.line_IG.Name = "line_IG";
-            this.line_IG.X1 = 850;
-            this.line_IG.X2 = 1440;
-            this.line_IG.Y1 = 300;
-            this.line_IG.Y2 = 300;
-            this.line_IG.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_IG.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_IG.BorderWidth = 3;
+            this.Track_IG.ContextMenuStrip = this.Gd_Menu;
+            this.Track_IG.Name = "Track_IG";
+            this.Track_IG.X1 = 850;
+            this.Track_IG.X2 = 1440;
+            this.Track_IG.Y1 = 300;
+            this.Track_IG.Y2 = 300;
+            this.Track_IG.Click += new System.EventHandler(this.Trans_name_G);
             // 
             // line_J_SI
             // 
@@ -1160,29 +1163,29 @@ namespace Computer_interlocking_system
             this.line_J_SI.Y1 = 290;
             this.line_J_SI.Y2 = 310;
             // 
-            // line_9DG_2
+            // Track_9DG_2
             // 
-            this.line_9DG_2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_9DG_2.BorderWidth = 3;
-            this.line_9DG_2.ContextMenuStrip = this.Gd_Menu;
-            this.line_9DG_2.Name = "line_9DG_2";
-            this.line_9DG_2.X1 = 670;
-            this.line_9DG_2.X2 = 850;
-            this.line_9DG_2.Y1 = 300;
-            this.line_9DG_2.Y2 = 300;
-            this.line_9DG_2.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_9DG_2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_9DG_2.BorderWidth = 3;
+            this.Track_9DG_2.ContextMenuStrip = this.Gd_Menu;
+            this.Track_9DG_2.Name = "Track_9DG_2";
+            this.Track_9DG_2.X1 = 670;
+            this.Track_9DG_2.X2 = 850;
+            this.Track_9DG_2.Y1 = 300;
+            this.Track_9DG_2.Y2 = 300;
+            this.Track_9DG_2.Click += new System.EventHandler(this.Trans_name_G);
             // 
-            // line_3G
+            // Track_3G
             // 
-            this.line_3G.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_3G.BorderWidth = 3;
-            this.line_3G.ContextMenuStrip = this.Gd_Menu;
-            this.line_3G.Name = "line_3G";
-            this.line_3G.X1 = 850;
-            this.line_3G.X2 = 1440;
-            this.line_3G.Y1 = 230;
-            this.line_3G.Y2 = 230;
-            this.line_3G.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_3G.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_3G.BorderWidth = 3;
+            this.Track_3G.ContextMenuStrip = this.Gd_Menu;
+            this.Track_3G.Name = "Track_3G";
+            this.Track_3G.X1 = 850;
+            this.Track_3G.X2 = 1440;
+            this.Track_3G.Y1 = 230;
+            this.Track_3G.Y2 = 230;
+            this.Track_3G.Click += new System.EventHandler(this.Trans_name_G);
             // 
             // line_J_S3
             // 
@@ -1194,25 +1197,25 @@ namespace Computer_interlocking_system
             this.line_J_S3.Y1 = 220;
             this.line_J_S3.Y2 = 240;
             // 
-            // line_C9S3_2
+            // Track_9DG_4
             // 
-            this.line_C9S3_2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_C9S3_2.BorderWidth = 3;
-            this.line_C9S3_2.Name = "line_C9S3_2";
-            this.line_C9S3_2.X1 = 785;
-            this.line_C9S3_2.X2 = 850;
-            this.line_C9S3_2.Y1 = 230;
-            this.line_C9S3_2.Y2 = 230;
+            this.Track_9DG_4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_9DG_4.BorderWidth = 3;
+            this.Track_9DG_4.Name = "Track_9DG_4";
+            this.Track_9DG_4.X1 = 785;
+            this.Track_9DG_4.X2 = 850;
+            this.Track_9DG_4.Y1 = 230;
+            this.Track_9DG_4.Y2 = 230;
             // 
-            // line_C9S3_1
+            // Track_9DG_3
             // 
-            this.line_C9S3_1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_C9S3_1.BorderWidth = 3;
-            this.line_C9S3_1.Name = "line_C9S3_1";
-            this.line_C9S3_1.X1 = 670;
-            this.line_C9S3_1.X2 = 785;
-            this.line_C9S3_1.Y1 = 290;
-            this.line_C9S3_1.Y2 = 230;
+            this.Track_9DG_3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_9DG_3.BorderWidth = 3;
+            this.Track_9DG_3.Name = "Track_9DG_3";
+            this.Track_9DG_3.X1 = 670;
+            this.Track_9DG_3.X2 = 785;
+            this.Track_9DG_3.Y1 = 290;
+            this.Track_9DG_3.Y2 = 230;
             // 
             // line_C9_F
             // 
@@ -1239,17 +1242,17 @@ namespace Computer_interlocking_system
             this.line_C9_D.Y2 = 300;
             this.line_C9_D.Click += new System.EventHandler(this.Trans_name_G);
             // 
-            // line_9DG_1
+            // Track_9DG_1
             // 
-            this.line_9DG_1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_9DG_1.BorderWidth = 3;
-            this.line_9DG_1.ContextMenuStrip = this.Gd_Menu;
-            this.line_9DG_1.Name = "line_9DG_1";
-            this.line_9DG_1.X1 = 600;
-            this.line_9DG_1.X2 = 650;
-            this.line_9DG_1.Y1 = 300;
-            this.line_9DG_1.Y2 = 300;
-            this.line_9DG_1.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_9DG_1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_9DG_1.BorderWidth = 3;
+            this.Track_9DG_1.ContextMenuStrip = this.Gd_Menu;
+            this.Track_9DG_1.Name = "Track_9DG_1";
+            this.Track_9DG_1.X1 = 600;
+            this.Track_9DG_1.X2 = 650;
+            this.Track_9DG_1.Y1 = 300;
+            this.Track_9DG_1.Y2 = 300;
+            this.Track_9DG_1.Click += new System.EventHandler(this.Trans_name_G);
             // 
             // line_J_D7
             // 
@@ -1261,29 +1264,29 @@ namespace Computer_interlocking_system
             this.line_J_D7.Y1 = 290;
             this.line_J_D7.Y2 = 310;
             // 
-            // line_5DG_2
+            // Track_5DG_2
             // 
-            this.line_5DG_2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_5DG_2.BorderWidth = 3;
-            this.line_5DG_2.ContextMenuStrip = this.Gd_Menu;
-            this.line_5DG_2.Name = "line_5DG_2";
-            this.line_5DG_2.X1 = 490;
-            this.line_5DG_2.X2 = 600;
-            this.line_5DG_2.Y1 = 300;
-            this.line_5DG_2.Y2 = 300;
-            this.line_5DG_2.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_5DG_2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_5DG_2.BorderWidth = 3;
+            this.Track_5DG_2.ContextMenuStrip = this.Gd_Menu;
+            this.Track_5DG_2.Name = "Track_5DG_2";
+            this.Track_5DG_2.X1 = 490;
+            this.Track_5DG_2.X2 = 600;
+            this.Track_5DG_2.Y1 = 300;
+            this.Track_5DG_2.Y2 = 300;
+            this.Track_5DG_2.Click += new System.EventHandler(this.Trans_name_G);
             // 
-            // line_7DG_1
+            // Track_7DG_1
             // 
-            this.line_7DG_1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_7DG_1.BorderWidth = 3;
-            this.line_7DG_1.ContextMenuStrip = this.Gd_Menu;
-            this.line_7DG_1.Name = "line_7DG_1";
-            this.line_7DG_1.X1 = 400;
-            this.line_7DG_1.X2 = 567;
-            this.line_7DG_1.Y1 = 360;
-            this.line_7DG_1.Y2 = 360;
-            this.line_7DG_1.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_7DG_1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_7DG_1.BorderWidth = 3;
+            this.Track_7DG_1.ContextMenuStrip = this.Gd_Menu;
+            this.Track_7DG_1.Name = "Track_7DG_1";
+            this.Track_7DG_1.X1 = 400;
+            this.Track_7DG_1.X2 = 567;
+            this.Track_7DG_1.Y1 = 360;
+            this.Track_7DG_1.Y2 = 360;
+            this.Track_7DG_1.Click += new System.EventHandler(this.Trans_name_G);
             // 
             // line_C7_D
             // 
@@ -1345,17 +1348,17 @@ namespace Computer_interlocking_system
             this.line_C5_D.Y2 = 300;
             this.line_C5_D.Click += new System.EventHandler(this.Trans_name_G);
             // 
-            // line_5DG_1
+            // Track_5DG_1
             // 
-            this.line_5DG_1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(192)))));
-            this.line_5DG_1.BorderWidth = 3;
-            this.line_5DG_1.ContextMenuStrip = this.Gd_Menu;
-            this.line_5DG_1.Name = "line_5DG_1";
-            this.line_5DG_1.X1 = 440;
-            this.line_5DG_1.X2 = 470;
-            this.line_5DG_1.Y1 = 300;
-            this.line_5DG_1.Y2 = 300;
-            this.line_5DG_1.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_5DG_1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(192)))));
+            this.Track_5DG_1.BorderWidth = 3;
+            this.Track_5DG_1.ContextMenuStrip = this.Gd_Menu;
+            this.Track_5DG_1.Name = "Track_5DG_1";
+            this.Track_5DG_1.X1 = 440;
+            this.Track_5DG_1.X2 = 470;
+            this.Track_5DG_1.Y1 = 300;
+            this.Track_5DG_1.Y2 = 300;
+            this.Track_5DG_1.Click += new System.EventHandler(this.Trans_name_G);
             // 
             // line_J_D3
             // 
@@ -1367,29 +1370,29 @@ namespace Computer_interlocking_system
             this.line_J_D3.Y1 = 350;
             this.line_J_D3.Y2 = 370;
             // 
-            // line_1DG_2
+            // Track_1DG_2
             // 
-            this.line_1DG_2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_1DG_2.BorderWidth = 3;
-            this.line_1DG_2.ContextMenuStrip = this.Gd_Menu;
-            this.line_1DG_2.Name = "line_1DG_2";
-            this.line_1DG_2.X1 = 323;
-            this.line_1DG_2.X2 = 400;
-            this.line_1DG_2.Y1 = 360;
-            this.line_1DG_2.Y2 = 360;
-            this.line_1DG_2.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_1DG_2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_1DG_2.BorderWidth = 3;
+            this.Track_1DG_2.ContextMenuStrip = this.Gd_Menu;
+            this.Track_1DG_2.Name = "Track_1DG_2";
+            this.Track_1DG_2.X1 = 323;
+            this.Track_1DG_2.X2 = 400;
+            this.Track_1DG_2.Y1 = 360;
+            this.Track_1DG_2.Y2 = 360;
+            this.Track_1DG_2.Click += new System.EventHandler(this.Trans_name_G);
             // 
-            // line_1DG_1
+            // Track_1DG_1
             // 
-            this.line_1DG_1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_1DG_1.BorderWidth = 3;
-            this.line_1DG_1.ContextMenuStrip = this.Gd_Menu;
-            this.line_1DG_1.Name = "line_1DG_1";
-            this.line_1DG_1.X1 = 243;
-            this.line_1DG_1.X2 = 303;
-            this.line_1DG_1.Y1 = 360;
-            this.line_1DG_1.Y2 = 360;
-            this.line_1DG_1.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_1DG_1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_1DG_1.BorderWidth = 3;
+            this.Track_1DG_1.ContextMenuStrip = this.Gd_Menu;
+            this.Track_1DG_1.Name = "Track_1DG_1";
+            this.Track_1DG_1.X1 = 243;
+            this.Track_1DG_1.X2 = 303;
+            this.Track_1DG_1.Y1 = 360;
+            this.Track_1DG_1.Y2 = 360;
+            this.Track_1DG_1.Click += new System.EventHandler(this.Trans_name_G);
             // 
             // line_J_D1
             // 
@@ -1411,17 +1414,17 @@ namespace Computer_interlocking_system
             this.linE_J_D5.Y1 = 290;
             this.linE_J_D5.Y2 = 310;
             // 
-            // line_3DG_2
+            // Track_3DG_2
             // 
-            this.line_3DG_2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(192)))));
-            this.line_3DG_2.BorderWidth = 3;
-            this.line_3DG_2.ContextMenuStrip = this.Gd_Menu;
-            this.line_3DG_2.Name = "line_3DG_2";
-            this.line_3DG_2.X1 = 420;
-            this.line_3DG_2.X2 = 440;
-            this.line_3DG_2.Y1 = 300;
-            this.line_3DG_2.Y2 = 300;
-            this.line_3DG_2.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_3DG_2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(192)))));
+            this.Track_3DG_2.BorderWidth = 3;
+            this.Track_3DG_2.ContextMenuStrip = this.Gd_Menu;
+            this.Track_3DG_2.Name = "Track_3DG_2";
+            this.Track_3DG_2.X1 = 420;
+            this.Track_3DG_2.X2 = 440;
+            this.Track_3DG_2.Y1 = 300;
+            this.Track_3DG_2.Y2 = 300;
+            this.Track_3DG_2.Click += new System.EventHandler(this.Trans_name_G);
             // 
             // line_C1C3
             // 
@@ -1483,29 +1486,29 @@ namespace Computer_interlocking_system
             this.line_C1_D.Y2 = 360;
             this.line_C1_D.Click += new System.EventHandler(this.Trans_name_G);
             // 
-            // line_IIAG
+            // Track_IIAG
             // 
-            this.line_IIAG.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_IIAG.BorderWidth = 3;
-            this.line_IIAG.ContextMenuStrip = this.Gd_Menu;
-            this.line_IIAG.Name = "line_IIAG";
-            this.line_IIAG.X1 = 150;
-            this.line_IIAG.X2 = 243;
-            this.line_IIAG.Y1 = 360;
-            this.line_IIAG.Y2 = 360;
-            this.line_IIAG.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_IIAG.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_IIAG.BorderWidth = 3;
+            this.Track_IIAG.ContextMenuStrip = this.Gd_Menu;
+            this.Track_IIAG.Name = "Track_IIAG";
+            this.Track_IIAG.X1 = 150;
+            this.Track_IIAG.X2 = 243;
+            this.Track_IIAG.Y1 = 360;
+            this.Track_IIAG.Y2 = 360;
+            this.Track_IIAG.Click += new System.EventHandler(this.Trans_name_G);
             // 
-            // line_3DG_1
+            // Track_3DG_1
             // 
-            this.line_3DG_1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_3DG_1.BorderWidth = 3;
-            this.line_3DG_1.ContextMenuStrip = this.Gd_Menu;
-            this.line_3DG_1.Name = "line_3DG_1";
-            this.line_3DG_1.X1 = 150;
-            this.line_3DG_1.X2 = 400;
-            this.line_3DG_1.Y1 = 300;
-            this.line_3DG_1.Y2 = 300;
-            this.line_3DG_1.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_3DG_1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_3DG_1.BorderWidth = 3;
+            this.Track_3DG_1.ContextMenuStrip = this.Gd_Menu;
+            this.Track_3DG_1.Name = "Track_3DG_1";
+            this.Track_3DG_1.X1 = 150;
+            this.Track_3DG_1.X2 = 400;
+            this.Track_3DG_1.Y1 = 300;
+            this.Track_3DG_1.Y2 = 300;
+            this.Track_3DG_1.Click += new System.EventHandler(this.Trans_name_G);
             // 
             // line_J_XF
             // 
@@ -1527,29 +1530,29 @@ namespace Computer_interlocking_system
             this.line3_J_X.Y1 = 290;
             this.line3_J_X.Y2 = 310;
             // 
-            // line_1LQ
+            // Track_1LQ
             // 
-            this.line_1LQ.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_1LQ.BorderWidth = 3;
-            this.line_1LQ.ContextMenuStrip = this.Gd_Menu;
-            this.line_1LQ.Name = "line_1LQ";
-            this.line_1LQ.X1 = 50;
-            this.line_1LQ.X2 = 150;
-            this.line_1LQ.Y1 = 360;
-            this.line_1LQ.Y2 = 360;
-            this.line_1LQ.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_1LQ.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_1LQ.BorderWidth = 3;
+            this.Track_1LQ.ContextMenuStrip = this.Gd_Menu;
+            this.Track_1LQ.Name = "Track_1LQ";
+            this.Track_1LQ.X1 = 50;
+            this.Track_1LQ.X2 = 150;
+            this.Track_1LQ.Y1 = 360;
+            this.Track_1LQ.Y2 = 360;
+            this.Track_1LQ.Click += new System.EventHandler(this.Trans_name_G);
             // 
-            // line_3JG
+            // Track_3JG
             // 
-            this.line_3JG.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
-            this.line_3JG.BorderWidth = 3;
-            this.line_3JG.ContextMenuStrip = this.Gd_Menu;
-            this.line_3JG.Name = "line_3JG";
-            this.line_3JG.X1 = 50;
-            this.line_3JG.X2 = 150;
-            this.line_3JG.Y1 = 300;
-            this.line_3JG.Y2 = 300;
-            this.line_3JG.Click += new System.EventHandler(this.Trans_name_G);
+            this.Track_3JG.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(120)))), ((int)(((byte)(182)))));
+            this.Track_3JG.BorderWidth = 3;
+            this.Track_3JG.ContextMenuStrip = this.Gd_Menu;
+            this.Track_3JG.Name = "Track_3JG";
+            this.Track_3JG.X1 = 50;
+            this.Track_3JG.X2 = 150;
+            this.Track_3JG.Y1 = 300;
+            this.Track_3JG.Y2 = 300;
+            this.Track_3JG.Click += new System.EventHandler(this.Trans_name_G);
             // 
             // beijing
             // 
@@ -1834,9 +1837,9 @@ namespace Computer_interlocking_system
             this.label_D1.ForeColor = System.Drawing.Color.Silver;
             this.label_D1.Location = new System.Drawing.Point(240, 312);
             this.label_D1.Name = "label_D1";
-            this.label_D1.Size = new System.Drawing.Size(25, 15);
+            this.label_D1.Size = new System.Drawing.Size(16, 15);
             this.label_D1.TabIndex = 38;
-            this.label_D1.Text = "D1";
+            this.label_D1.Text = "1";
             // 
             // label_D3
             // 
@@ -1965,6 +1968,16 @@ namespace Computer_interlocking_system
             this.label6.TabIndex = 51;
             this.label6.Text = "2DJ";
             // 
+            // Train
+            // 
+            this.Train.Image = ((System.Drawing.Image)(resources.GetObject("Train.Image")));
+            this.Train.Location = new System.Drawing.Point(50, 300);
+            this.Train.Margin = new System.Windows.Forms.Padding(0);
+            this.Train.Name = "Train";
+            this.Train.Size = new System.Drawing.Size(20, 15);
+            this.Train.TabIndex = 52;
+            this.Train.TabStop = false;
+            // 
             // CBI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 15F);
@@ -1972,6 +1985,7 @@ namespace Computer_interlocking_system
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.Train);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -2028,9 +2042,11 @@ namespace Computer_interlocking_system
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "CBI";
+            this.Load += new System.EventHandler(this.CBI_Load);
             this.X_Menu.ResumeLayout(false);
             this.Gd_Menu.ResumeLayout(false);
             this.Dc_Menu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Train)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2050,54 +2066,54 @@ namespace Computer_interlocking_system
         private System.Windows.Forms.Button djbtom;//道岔解封
         private System.Windows.Forms.Label ZcName;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_IG;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_IG;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_J_SI;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_9DG_2;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_3G;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_9DG_2;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_3G;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_J_S3;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_C9S3_2;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_C9S3_1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_9DG_4;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_9DG_3;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_C9_F;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_C9_D;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_9DG_1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_9DG_1;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_J_D7;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_5DG_2;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_7DG_1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_5DG_2;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_7DG_1;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_C7_D;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_C7_F;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_C5C7;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_C5_F;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_C5_D;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_5DG_1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_5DG_1;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_J_D3;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_1DG_2;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_1DG_1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_1DG_2;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_1DG_1;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_J_D1;
         private Microsoft.VisualBasic.PowerPacks.LineShape linE_J_D5;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_3DG_2;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_3DG_2;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_C1C3;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_C3_F;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_C3_D;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_C1_F;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_C1_D;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_IIAG;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_3DG_1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_IIAG;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_3DG_1;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_J_XF;
         private Microsoft.VisualBasic.PowerPacks.LineShape line3_J_X;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_1LQ;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_3JG;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_4G;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_IIG;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_1LQ;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_3JG;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_4G;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_IIG;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_J_S4;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_C11S4_2;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_11DG_4;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_JSII;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_11DG_2;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_C11S4_1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_11DG_2;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_11DG_3;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_C11_F;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_C11_D;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_11DG_1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_11DG_1;
         private Microsoft.VisualBasic.PowerPacks.LineShape line_J_D9;
-        private Microsoft.VisualBasic.PowerPacks.LineShape line_7DG_2;
+        private Microsoft.VisualBasic.PowerPacks.LineShape Track_7DG_2;
         private System.Windows.Forms.Label beijing;
         private System.Windows.Forms.Label label_3JG;
         private System.Windows.Forms.Label label_3DG;
@@ -2196,6 +2212,7 @@ namespace Computer_interlocking_system
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox Train;
     }
 }
 
